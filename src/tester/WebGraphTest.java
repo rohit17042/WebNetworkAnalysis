@@ -14,7 +14,8 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @author Rohit Chaudhary
+ *
+ * @author : Rohit Chaudhary
  *
  */
 
@@ -118,6 +119,25 @@ class WebGraphTest {
             assertEquals(expectedMap, actualMap);
         }
 
+    }
+
+    @Test
+    void getNumOfNodes(){
+        assertEquals(7, smallGraph.getNumOfNodes());
+    }
+
+    @Test
+    void getNumOfEdges(){
+        assertEquals(10, smallGraph.getNumOfEdges());
+    }
+
+    @Test
+    void removeEdge(){
+        smallGraph.removeEdge(18, 44);
+        adjListMap.get(18).remove(44);
+        assertEquals(smallGraph.exportGraph(), adjListMap);
+        assertEquals(7, smallGraph.getNumOfNodes());
+        assertEquals(9, smallGraph.getNumOfEdges());
     }
 
 }

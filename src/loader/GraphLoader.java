@@ -7,7 +7,7 @@ import java.util.Set;
 
 /**
  *
- * @author: Rohit Chaudhary
+ * @author : Rohit Chaudhary
  *
  */
 
@@ -21,9 +21,9 @@ public class GraphLoader {
 
     public static void loadGraph(graph.Graph g, String filename) {
         Set<Integer> seen = new HashSet<Integer>();
-        Scanner sc;
+        Scanner scanner;
         try {
-            sc = new Scanner(new File(filename));
+            scanner = new Scanner(new File(filename));
         } catch (Exception e) {
             e.printStackTrace();
             return;
@@ -31,9 +31,9 @@ public class GraphLoader {
 
         // Iterate over the lines in the file, adding new
         // vertices as they are found and connecting them with edges.
-        while (sc.hasNextInt()) {
-            int node1 = sc.nextInt();
-            int node2 = sc.nextInt();
+        while (scanner.hasNextInt()) {
+            int node1 = scanner.nextInt();
+            int node2 = scanner.nextInt();
             if (!seen.contains(node1)) {
                 g.addVertex(node1);
                 seen.add(node1);
@@ -45,7 +45,7 @@ public class GraphLoader {
             g.addEdge(node1, node2);
         }
 
-        sc.close();
+        scanner.close();
     }
 
 }

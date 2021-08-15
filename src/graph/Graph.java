@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  *
- * @author: Rohit Chaudhary
+ * @author : Rohit Chaudhary
  *
  */
 
@@ -17,10 +17,15 @@ public interface Graph {
     /* Creates an edge from the first vertex to the second. */
     public void addEdge(int from, int to);
 
+    /* removes an edge from the first vertex to the second. */
+    public void removeEdge(int from, int to);
+
     /* Finds the egonet centered at a given node. */
     public Graph getEgonet(int center);
 
-    /* Returns all SCCs in a directed graph. */
+    /* Returns all SCCs in a directed graph. Recall that the warm up
+     * assignment assumes all Graphs are directed, and we will only
+     * test on directed graphs. */
     public List<Graph> getSCCs();
 
     /* Return the graph's connections in a readable format.
@@ -31,4 +36,10 @@ public interface Graph {
      * multi-edges.  */
 
     public HashMap<Integer, HashSet<Integer>> exportGraph();
+
+    /* Returns number of vertices of a graph */
+    public int getNumOfNodes();
+
+    /* Returns number of edges of a graph */
+    public int getNumOfEdges();
 }

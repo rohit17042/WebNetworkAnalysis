@@ -4,30 +4,66 @@ import java.util.*;
 
 /**
  *
- * @author: Rohit Chaudhary
+ * @author : Rohit Chaudhary
  *
  */
 
-public class WebGraph implements Graph{
+public class WebGraph implements Graph {
 
     private HashMap<Integer, HashSet<Integer>> adjacencyListMap;
+    private int numOfNodes;
+    private int numOfEdges;
 
     public WebGraph(){
         this.adjacencyListMap = new HashMap<>();
+        this.numOfNodes = 0;
+        this.numOfEdges = 0;
     }
 
+    /* (non-Javadoc)
+     * @see graph.Graph#addVertex(int)
+     */
     @Override
     public void addVertex(int num) {
         if(this.adjacencyListMap.containsKey(num))
             return;
         this.adjacencyListMap.put(num, new HashSet<>());
+        this.numOfNodes++;
     }
 
+    /* (non-Javadoc)
+     * @see graph.Graph#addEdge(int, int)
+     */
     @Override
     public void addEdge(int from, int to) {
+        if(!this.adjacencyListMap.containsKey(from) || !this.adjacencyListMap.containsKey(to))
+            return;
+
+        if(this.adjacencyListMap.get(from).contains(to))
+            return;
+
         this.adjacencyListMap.get(from).add(to);
+        this.numOfEdges++;
     }
 
+    /* (non-Javadoc)
+     * @see graph.Graph#removeEdge(int, int)
+     */
+    @Override
+    public void removeEdge(int from, int to) {
+        if(!this.adjacencyListMap.containsKey(from) || !this.adjacencyListMap.containsKey(to))
+            return;
+
+        if(!this.adjacencyListMap.get(from).contains(to))
+            return;
+
+        this.adjacencyListMap.get(from).remove(to);
+        this.numOfEdges--;
+    }
+
+    /* (non-Javadoc)
+     * @see graph.Graph#getEgonet(int)
+     */
     @Override
     public Graph getEgonet(int center) {
         if(!adjacencyListMap.containsKey(center))
@@ -41,6 +77,9 @@ public class WebGraph implements Graph{
         return egonet;
     }
 
+    /* (non-Javadoc)
+     * @see graph.Graph#getSCCs()
+     */
     @Override
     public List<Graph> getSCCs() {
         Stack<Integer> vertices = getAllVertices();
@@ -59,9 +98,22 @@ public class WebGraph implements Graph{
         return scc;
     }
 
+    /* (non-Javadoc)
+     * @see graph.Graph#exportGraph()
+     */
     @Override
     public HashMap<Integer, HashSet<Integer>> exportGraph() {
         return new HashMap<>(this.adjacencyListMap);
+    }
+
+    @Override
+    public int getNumOfNodes(){
+        return this.numOfNodes;
+    }
+
+    @Override
+    public int getNumOfEdges(){
+        return this.numOfEdges;
     }
 
     private List<Integer> getConnections(int id){
