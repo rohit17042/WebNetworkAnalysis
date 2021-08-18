@@ -10,7 +10,9 @@ Let's break that down using an example. Think about social media platforms such 
 These social circles are nothing but communities!
 
 ## What is Community Detection?
-The ability to find communities within large networks in some automated fashion could be of considerable use. In a large scale network, such as an online social network, we could have millions of nodes and edges. Detecting communities in such networks becomes a herculean task.
+The concept of community detection has emerged in network science as a method for finding groups within complex systems through represented on a graph.
+
+The ability to find communities within large networks in some automated fashion could be of considerable use. In a large scale network, such as an online social network, we could have millions of nodes and edges. Detecting communities in such network requires tremendous effort.
 
 Therefore, we need community detection algorithms that can partition the network into multiple communities.
 
