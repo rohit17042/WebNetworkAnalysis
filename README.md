@@ -44,7 +44,9 @@ It resembles edge of a graph having sourceNode and destinationNode as instance v
 ### Suggester
 It suggests desired number of similar nodes of a given id of a node.
 ### CommunityDetector
-The class has one public method detectCommunity() which takes graph and targetNumOfCommunities as parameters and returns list of graphs. Every graph of the returned list is a unique community.
+The class has one public method detectCommunity() which takes graph and targetNumOfCommunities as parameters and returns list of graphs. Every graph of the returned list is a unique community. 
+
+The class detects communities using Girvan-Newman Algorithm. It is one of the most widely applied algorithms for social network graph clustering, based on detection of edges that are least likely to fall within the same cluster.
 ### CommunityDetectorTest
 It's a JUnit class which ensures that "CommunityDetector" class is working as expected.
 
