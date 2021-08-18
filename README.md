@@ -27,27 +27,27 @@ I have used data that was released in 2002 by Google as a part of Google Program
 * Number of Edges: 5105039
 ## Code Overview
 Below is the overview of every java files that I have implemented.
-### Graph
+#### Graph
 It's an interface that declares few methods that every network must contain. Ex: addEdge(), addNode(), removeEdge(), etc.
-### WebGraph
+#### WebGraph
 The class implements "Graph" interface and contains information of data in the form of "graph" data structure. 
-### WebGraphTest
+#### WebGraphTest
 It's a JUnit class which ensures that "WebGraph" class is working as expected.
-### GraphLoader
+#### GraphLoader
 It loads graph with data from a file. The file should consist of lines with 2 integers each, corresponding to a "from" vertex and a "to" vertex.
-### SubGraphCreator
+#### SubGraphCreator
 It creates a subgraph containing a list of given nodes from a source "WebGraph". It doesn't override original data of given graph, rather it will create a new instance of "WebGraph".
-### Node
+#### Node
 It resembles node of a graph having unique id.
-### Edge
+#### Edge
 It resembles edge of a graph having sourceNode and destinationNode as instance variables.
-### Suggester
+#### Suggester
 It suggests desired number of similar nodes of a given id of a node.
-### CommunityDetector
+#### CommunityDetector
 The class has one public method detectCommunity() which takes graph and targetNumOfCommunities as parameters and returns list of graphs. Every graph of the returned list is a unique community. 
 
 The class detects communities using Girvan-Newman Algorithm. It is one of the most widely applied algorithms for social network graph clustering, based on detection of edges that are least likely to fall within the same cluster.
-### CommunityDetectorTest
+#### CommunityDetectorTest
 It's a JUnit class which ensures that "CommunityDetector" class is working as expected.
 
 ## Correctness
