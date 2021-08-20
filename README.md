@@ -50,5 +50,9 @@ The class detects communities using Girvan-Newman Algorithm. It is one of the mo
 #### CommunityDetectorTest
 It's a JUnit class which ensures that "CommunityDetector" class is working as expected.
 
-## Correctness
-I had created several test cases for verifying the implementations. I had Created test classes by using JUnit5. Expected and actual answers were same for undirected graph. For directed graph, community detector is not answering as expected, so my next step would be to optimize the community detector algorithm for directed graph as well.
+## Correctness (Testing)
+I created several test cases for verifying the implementations using JUnit5. I first created few known graphs such as Barbell Graph & Zachary's karate club Graph in JUnit Class and then tested the algorithm for both the directed and undirected version of these two graphs.
+
+For undirected grah, I found that the Community detecting algorithm works fine, i.e, the expected and actual answers were exactly same.
+
+While for directed version of same graphs, I came to know that the algorithm was not splitting the graphs into the expected way. Many of the communities, that I found during my testing, were consisting only one node and one giant community was consisting rest nodes. In summary, the algorithm has to be refactored for directed graphs. So, my next step would be to optimize the algorithm so that it works well for directed graph as well.
