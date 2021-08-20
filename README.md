@@ -1,5 +1,5 @@
 # WebNetworkAnalysis
-The Project identifies the communities within a web network using link of a webpage by another webpage. Identifying of "communities" within networks means identifying subsets or clusters containing the nodes with unusually strong or numerous connections.
+The Project identifies the communities within a web network using link of a webpage by another webpage. Identifying "communities" within networks means identifying subsets or clusters containing the nodes with unusually strong or numerous connections.
 
 ## What is a Community?
 Let's first define the word "Community".
